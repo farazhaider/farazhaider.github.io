@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faraz Haider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #999999;
+      --border: #e8e8e8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 4rem;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* PAGE */
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 96px;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-bio {
+      font-size: 0.93rem;
+      color: #555;
+      max-width: 500px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .hero-links a:hover { color: var(--text); border-color: #aaa; }
+
+    /* SECTIONS */
+    .section {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      font-size: 0.67rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* EXPERIENCE */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:first-of-type { border-top: 1px solid var(--border); }
+
+    .exp-date {
+      font-size: 0.71rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-company {
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+
+    .exp-location {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .exp-role {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-desc {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .tag {
+      font-size: 0.63rem;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.18rem 0.55rem;
+    }
+
+    /* SKILLS */
+    .skill-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 2rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+    }
+
+    .skill-row:first-of-type { border-top: 1px solid var(--border); }
+
+    .skill-category {
+      font-size: 0.71rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      padding-top: 0.1rem;
+    }
+
+    .skill-items { color: #444; }
+
+    /* RESEARCH */
+    .pub-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-item:first-of-type { border-top: 1px solid var(--border); }
+
+    .pub-year {
+      font-size: 0.71rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+
+    .pub-title {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-venue {
+      font-size: 0.71rem;
+      color: var(--muted);
+    }
+
+    .pub-link {
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s;
+    }
+
+    .pub-link:hover { color: var(--text); }
+
+    /* CONTACT */
+    .contact-block {
+      padding: 64px 0 96px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-block p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1.4;
+      color: #333;
+      margin-bottom: 2.5rem;
+      max-width: 440px;
+    }
+
+    .contact-block p em { font-style: italic; }
+
+    .contact-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .contact-row a {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .contact-row a:hover { color: var(--text); border-color: #aaa; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      font-size: 0.69rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ANIMATIONS */
+    .fade {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .page { padding: 0 1.5rem; }
+      .exp-item, .skill-row, .pub-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Faraz Haider</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <div class="hero">
+    <h1>Senior Software Engineer<br /><em>— distributed systems & ML</em></h1>
+    <p class="hero-bio">
+      Nine years building backend infrastructure at scale — from ad delivery serving over a billion quarterly impressions, to in-house ML pipelines, to satellite firmware. Based in Stockholm.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/farazhaider" target="_blank">GitHub ↗</a>
+      <a href="https://linkedin.com/in/farazhaider110" target="_blank">LinkedIn ↗</a>
+      <a href="https://scholar.google.com/citations?user=mDt9s34AAAAJ" target="_blank">Google Scholar ↗</a>
+      <a href="mailto:frz.hdr.619@gmail.com">frz.hdr.619@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="section" id="experience">
+    <div class="section-header">Experience</div>
+
+    <div class="exp-item fade">
+      <div>
+        <div class="exp-date">2022 – 2025</div>
+        <div class="exp-company">Acast</div>
+        <div class="exp-location">Stockholm</div>
+      </div>
+      <div>
+        <div class="exp-role">Senior Software Engineer</div>
+        <div class="exp-desc">Built core infrastructure for one of the world's largest podcast platforms. Replaced a third-party transcription vendor with an in-house system on AWS A100s — outperforming on WER and scaling to 10,000+ episodes/month. Designed contextual ad targeting using Sentence Transformers and vector search, expanding addressable inventory. Architected the data engineering backbone (Airflow, PySpark) and maintained Ad Delivery serving 1B+ quarterly impressions.</div>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">Sentence Transformers</span><span class="tag">Vector DB</span><span class="tag">Airflow</span><span class="tag">PySpark</span><span class="tag">ElasticSearch</span><span class="tag">AWS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div>
+        <div class="exp-date">2020 – 2022</div>
+        <div class="exp-company">Grace Health</div>
+        <div class="exp-location">Stockholm</div>
+      </div>
+      <div>
+        <div class="exp-role">Senior Backend Developer</div>
+        <div class="exp-desc">Co-built Juno, an ML model for menstrual cycle tracking powering data for 1M+ active users. Led migration off Facebook's conversational services to a proprietary backend, including technical strategy and hiring. Owned IaC layer across AWS and GCP.</div>
+        <div class="tags">
+          <span class="tag">ML</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">IaC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div>
+        <div class="exp-date">2019 – 2020</div>
+        <div class="exp-company">Derivco / Betway</div>
+        <div class="exp-location">Stockholm</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer II</div>
+        <div class="exp-desc">Developed and maintained the Sportsbook platform — a low-latency, highly available system. Co-architected a full rewrite using Event Sourcing and Elixir/Erlang, reducing microservice count and resolving significant tech debt.</div>
+        <div class="tags">
+          <span class="tag">Elixir</span><span class="tag">Erlang</span><span class="tag">Event Sourcing</span><span class="tag">Low Latency</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div>
+        <div class="exp-date">2016 – 2018</div>
+        <div class="exp-company">Amadeus Labs</div>
+        <div class="exp-location">Bangalore</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer</div>
+        <div class="exp-desc">Maintained Lufthansa Middleware, the primary ticket booking backend processing 1M+ transactions/day. Led development of Unity — an internal server metrics and alerting application for the global ops team.</div>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Middleware</span><span class="tag">Monitoring</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div>
+        <div class="exp-date">Jan – Jun 2016</div>
+        <div class="exp-company">CreoSense</div>
+        <div class="exp-location">Bangalore</div>
+      </div>
+      <div>
+        <div class="exp-role">Engineering Intern</div>
+        <div class="exp-desc">Worked on a custom Android-based OS for the Creo handset. Designed and implemented a custom TCP/ProtoBuf protocol for efficient data transfer between phone and laptop. (CreoSense was later acquired by Hike.)</div>
+        <div class="tags">
+          <span class="tag">Android</span><span class="tag">TCP</span><span class="tag">ProtoBuf</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div>
+        <div class="exp-date">Summer 2015</div>
+        <div class="exp-company">AerxLabs</div>
+        <div class="exp-location">Bangalore</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Intern</div>
+        <div class="exp-desc">Designed and developed a drone attitude predictor using a Kalman estimator, fusing Accelerometer and Gyroscope data to estimate position in 3D space in real time.</div>
+        <div class="tags">
+          <span class="tag">Kalman Filter</span><span class="tag">Sensors</span><span class="tag">Embedded</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="section-header">Skills</div>
+
+    <div class="skill-row fade">
+      <div class="skill-category">ML & AI</div>
+      <div class="skill-items">PyTorch, Sentence Transformers, RAG pipelines, NLP, Vector Databases</div>
+    </div>
+    <div class="skill-row fade">
+      <div class="skill-category">Distributed Systems</div>
+      <div class="skill-items">Event Sourcing, high-throughput ad delivery, low-latency APIs, Microservices, Erlang BEAM</div>
+    </div>
+    <div class="skill-row fade">
+      <div class="skill-category">Data Engineering</div>
+      <div class="skill-items">Apache Airflow, PySpark, BigQuery, ElasticSearch, Kafka, RabbitMQ</div>
+    </div>
+    <div class="skill-row fade">
+      <div class="skill-category">Infrastructure</div>
+      <div class="skill-items">AWS, GCP, ECS / Kubernetes, Serverless, Grafana, IaC</div>
+    </div>
+    <div class="skill-row fade">
+      <div class="skill-category">Languages</div>
+      <div class="skill-items">Python, TypeScript / Node.js, Elixir / Erlang, Java</div>
+    </div>
+  </div>
+
+  <div class="section" id="research">
+    <div class="section-header">Research & Open Source</div>
+
+    <div class="pub-item fade">
+      <div class="pub-year">2018</div>
+      <div>
+        <div class="pub-title">Compact Sparse Merkle Trees</div>
+        <div class="pub-venue">IACR Preprint &nbsp;·&nbsp; <a href="https://github.com/ZanjeerPlatform/bargad" target="_blank" class="pub-link">Bargad Framework ↗</a></div>
+      </div>
+    </div>
+    <div class="pub-item fade">
+      <div class="pub-year">2015</div>
+      <div>
+        <div class="pub-title">Performance Analysis of Micrium RTOS in the Computer of a Nano-Satellite</div>
+        <div class="pub-venue">36th IEEE Aerospace Conference, Montana</div>
+      </div>
+    </div>
+    <div class="pub-item fade">
+      <div class="pub-year">2015</div>
+      <div>
+        <div class="pub-title">Dynamics and Control System Design of a Polar LEO Nano-Satellite 'Parikshit'</div>
+        <div class="pub-venue">ICACCI 2015</div>
+      </div>
+    </div>
+    <div class="pub-item fade">
+      <div class="pub-year">2015</div>
+      <div>
+        <div class="pub-title">Mechanism, Ensuing Dynamics and Control of a Polar LEO Tethered Nano-Satellite</div>
+        <div class="pub-venue">IEEE Aerospace Conference 2015</div>
+      </div>
+    </div>
+    <div class="pub-item fade">
+      <div class="pub-year">2015</div>
+      <div>
+        <div class="pub-title">Control System Design to Counter the Effect of Tether Ejection on a Nano-Satellite</div>
+        <div class="pub-venue">ICACCI 2015</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-block" id="contact">
+    <p>Open to new roles and <em>interesting problems.</em></p>
+    <div class="contact-row">
+      <a href="mailto:frz.hdr.619@gmail.com">frz.hdr.619@gmail.com</a>
+      <a href="tel:+46709396334">+46 70 939 6334</a>
+      <a href="https://github.com/farazhaider" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/farazhaider110" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=mDt9s34AAAAJ" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>Faraz Haider</span>
+    <span>Stockholm, Sweden</span>
+  </footer>
+
+</div>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 50);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
