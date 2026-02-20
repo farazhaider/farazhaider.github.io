@@ -283,11 +283,10 @@
 
     /* ANIMATIONS */
     .fade {
-      opacity: 0;
-      transform: translateY(10px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .fade.visible { opacity: 1; transform: none; }
 
     @media (max-width: 600px) {
       nav { padding: 0 1.5rem; }
@@ -304,6 +303,7 @@
   <ul class="nav-links">
     <li><a href="#experience">Work</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -312,15 +312,15 @@
 <div class="page">
 
   <div class="hero">
-    <h1>Senior Software Engineer<br /><em>— distributed systems & ML</em></h1>
+    <h1>Software Engineer<br /><em>— distributed systems</em></h1>
     <p class="hero-bio">
-      Nine years building backend infrastructure at scale — from ad delivery serving over a billion quarterly impressions, to in-house ML pipelines, to satellite firmware. Based in Stockholm.
+      Nine years building backend systems at scale — from high-throughput ad delivery and ML pipelines, to real-time sports data platforms, to satellite firmware. Based in Stockholm.
     </p>
     <div class="hero-links">
       <a href="https://github.com/farazhaider" target="_blank">GitHub ↗</a>
       <a href="https://linkedin.com/in/farazhaider110" target="_blank">LinkedIn ↗</a>
       <a href="https://scholar.google.com/citations?user=mDt9s34AAAAJ" target="_blank">Google Scholar ↗</a>
-      <a href="mailto:frz.hdr.619@gmail.com">frz.hdr.619@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#c3a5b1b9edaba7b1edf5f2fa83a4aea2aaafeda0acae"><span class="__cf_email__" data-cfemail="3056424a1e5854421e06010970575d51595c1e535f5d">[email&#160;protected]</span></a>
     </div>
   </div>
 
@@ -352,7 +352,7 @@
         <div class="exp-role">Senior Backend Developer</div>
         <div class="exp-desc">Co-built Juno, an ML model for menstrual cycle tracking powering data for 1M+ active users. Led migration off Facebook's conversational services to a proprietary backend, including technical strategy and hiring. Owned IaC layer across AWS and GCP.</div>
         <div class="tags">
-          <span class="tag">ML</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">IaC</span>
+          <span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Dialogflow</span><span class="tag">BigQuery</span><span class="tag">ECS</span><span class="tag">Lambda</span><span class="tag">Firebase</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span><span class="tag">Terraform</span><span class="tag">Sentry</span>
         </div>
       </div>
     </div>
@@ -382,7 +382,7 @@
         <div class="exp-role">Software Engineer</div>
         <div class="exp-desc">Maintained Lufthansa Middleware, the primary ticket booking backend processing 1M+ transactions/day. Led development of Unity — an internal server metrics and alerting application for the global ops team.</div>
         <div class="tags">
-          <span class="tag">Java</span><span class="tag">Middleware</span><span class="tag">Monitoring</span>
+          <span class="tag">Java</span><span class="tag">TIBCO BusinessWorks</span><span class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">Grafana</span>
         </div>
       </div>
     </div>
@@ -397,7 +397,7 @@
         <div class="exp-role">Engineering Intern</div>
         <div class="exp-desc">Worked on a custom Android-based OS for the Creo handset. Designed and implemented a custom TCP/ProtoBuf protocol for efficient data transfer between phone and laptop. (CreoSense was later acquired by Hike.)</div>
         <div class="tags">
-          <span class="tag">Android</span><span class="tag">TCP</span><span class="tag">ProtoBuf</span>
+          <span class="tag">Java</span><span class="tag">Android</span><span class="tag">Node.js</span><span class="tag">Vue.js</span><span class="tag">TCP</span><span class="tag">Protobuf</span>
         </div>
       </div>
     </div>
@@ -443,6 +443,35 @@
     </div>
   </div>
 
+  <div class="section" id="projects">
+    <div class="section-header">Projects</div>
+
+    <div class="pub-item fade">
+      <div class="pub-year">2018</div>
+      <div>
+        <div class="pub-title">Lispex</div>
+        <div class="pub-venue">A Scheme-flavoured Lisp interpreter written in Elixir, complete with a REPL. Built as a deep-dive into Elixir's pattern matching, recursion, and functional constructs. &nbsp;·&nbsp; <a href="https://github.com/farazhaider/lispex" target="_blank" class="pub-link">GitHub ↗</a></div>
+      </div>
+    </div>
+
+    <div class="pub-item fade">
+      <div class="pub-year">2018</div>
+      <div>
+        <div class="pub-title">Bargad & CSMT</div>
+        <div class="pub-venue">Reference implementation of Compact Sparse Merkle Trees in Elixir — a hash tree with a pluggable storage layer, usable for transparency logs, secure distributed file systems, and more efficient blockchains. &nbsp;·&nbsp; <a href="https://github.com/ZanjeerPlatform/bargad" target="_blank" class="pub-link">GitHub ↗</a></div>
+      </div>
+    </div>
+
+    <div class="pub-item fade">
+      <div class="pub-year">2015</div>
+      <div>
+        <div class="pub-title">Parikshit Dynamics Propagator</div>
+        <div class="pub-venue">Qt5 GUI for simulating and visualising the orbital dynamics of the Parikshit nano-satellite, built during research at Manipal University's Satellite Lab. &nbsp;·&nbsp; <a href="https://github.com/farazhaider/parikshit-dynamics-propagator-qt" target="_blank" class="pub-link">GitHub ↗</a></div>
+      </div>
+    </div>
+
+  </div>
+
   <div class="section" id="research">
     <div class="section-header">Research & Open Source</div>
 
@@ -486,8 +515,7 @@
   <div class="contact-block" id="contact">
     <p>Open to new roles and <em>interesting problems.</em></p>
     <div class="contact-row">
-      <a href="mailto:frz.hdr.619@gmail.com">frz.hdr.619@gmail.com</a>
-      <a href="tel:+46709396334">+46 70 939 6334</a>
+      <a href="/cdn-cgi/l/email-protection#f690848cd89e9284d8c0c7cfb6919b979f9ad895999b"><span class="__cf_email__" data-cfemail="086e7a7226606c7a263e3931486f65696164266b6765">[email&#160;protected]</span></a>
       <a href="https://github.com/farazhaider" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/farazhaider110" target="_blank">LinkedIn</a>
       <a href="https://scholar.google.com/citations?user=mDt9s34AAAAJ" target="_blank">Google Scholar</a>
@@ -501,14 +529,4 @@
 
 </div>
 
-<script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 50);
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-</script>
-
-</body>
-</html>
+<script data-cfasync="false" src="/cd
